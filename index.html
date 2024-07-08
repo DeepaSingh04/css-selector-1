@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/4798636071.js" crossorigin="anonymous"></script>
+    <style>
+        #nav{
+            border: 1px solid pink;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .left{
+            border: 1px solid blue;
+            width: 45%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+
+        }
+        .right{
+            border: 1px solid green;
+            width: 35%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            
+
+        }
+        a, i{
+            text-decoration: none;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        #Maincard{
+            
+            width: 85%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        #card{
+           
+            width: 23%;
+            height: 380px;
+            padding: 15px;
+            box-sizing: border-box;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+        }
+        .up{
+            width: 100% ;
+            
+            height: 50%;
+        }
+        .down{
+            width: 100%;
+           
+            height: 50%;
+            display: flex;
+        }
+        .leftcard{
+            width: 50%;
+            
+             height: 100%;
+        }
+        .rightcard{
+            width: 50%;
+            
+            height: 100%;
+
+        }
+        .onbanner{
+            position: absolute;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+        .onbanner > button{
+            background-color: black;
+            color: white;
+            padding: 13px;
+            border: none;
+            font-size: 20px;
+            border-radius: 10px;
+                }
+
+        
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div class="left">
+            <img width="50px"  src="data:image/png;base64,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" alt="">
+            <a href="">Store</a>
+            <a href="">Phone</a>
+            <a href="">TV & Smart Home</a>
+            <a href="">Tablet</a>
+            <a href="">Lifestyle</a>
+            
+        </div>
+        <div class="right">
+            <a href="">Discover</a>
+            <a href="">Support</a>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-regular fa-user"></i>
+
+        </div>
+
+    </div>
+    <div id="Maincard">
+        <div id="card">
+            <div class="up">
+                <h3>Redmi Eraphones</h3>
+                <p>25% off</p>
+
+            </div>
+            <div class="down">
+                <div class="leftcard">
+                    <h4>rs449</h4>
+
+                </div>
+                <div class="rightcard">
+                    <img width="100%" height="90%" src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/k/s/1/-original-imagtwb7mazunzgd.jpeg?q=70" alt="">
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div id="card">
+            <div class="up">
+                <h3>Mi dual driver</h3>
+                <p>20% off</p>
+
+            </div>
+            <div class="down">
+                <div class="leftcard">
+                    <h4>rs1299</h4>
+
+                </div>
+                <div class="rightcard">
+                    <img width="100%" height="90%" src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/z/s/y/xo6-gaming-earbuds-with-35ms-low-latency-rgb-led-13mm-drivers-original-imahfaycthveemzj.jpeg?q=70" alt="">
+                </div>
+
+            </div>
+
+
+        </div>
+        <div id="card">
+            <div class="up">
+                <h3>Redmi sonic bass wireless</h3>
+                <p>55% off</p>
+
+            </div>
+            <div class="down">
+                <div class="leftcard">
+                    <h4>rs4500</h4>
+
+                </div>
+                <div class="rightcard">
+                    <img width="100%" height="90%" src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/k/h/c/buds-3-e509a-oneplus-original-imagwynyrx5gc5ph.jpeg?q=70" alt="">
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div id="card">
+            <div class="up">
+                <h3>Redmi Mi portable</h3>
+                <p>30% off</p>
+
+            </div>
+            <div class="down">
+                <div class="leftcard">
+                    <h4>rs2499</h4>
+
+                </div>
+                <div class="rightcard">
+                    <img width="100%" height="90%" src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/f/y/g/prodart-sam-sung-original-ehs61-deep-bass-with-sound-original-imagh9hngf3rfz9v.jpeg?q=70" alt="">
+
+                </div>
+
+            </div>
+
+
+        </div>
+        
+        
+         
+    </div>
+    <br><br><br><br><br>
+    <div>
+        <div class="onbanner">
+            <h2>Save Upto 65% on 
+                <br>
+                charges and cable</h2>
+            <p>free delivery on all products</p>
+            <button>Buy now</button>
+
+        </div>
+        <img width="100%" height="300px" src="https://i03.appmifile.com/572_operator_in/04/07/2024/4a0fcf650e780ac7e4da23bb8822d18f.jpg?thumb=1&w=1680&f=webp&q=85" alt="">
+    </div>
+    <div id="Maincard">
+        <div id="card">
+            <div class="up">
+                <h3>Redmi Eraphones</h3>
+                <p>25% off</p>
+
+            </div>
+            <div class="down">
+                <div class="leftcard">
+                    <h4>rs449</h4>
+
+                </div>
+                <div class="rightcard">
+                    <img width="100%" height="90%" src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/k/s/1/-original-imagtwb7mazunzgd.jpeg?q=70" alt="">
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div id="card">
+            <div class="up">
+                <h3>Mi dual driver</h3>
+                <p>20% off</p>
+
+            </div>
+            <div class="down">
+                <div class="leftcard">
+                    <h4>rs1299</h4>
+
+                </div>
+                <div class="rightcard">
+                    <img width="100%" height="90%" src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/z/s/y/xo6-gaming-earbuds-with-35ms-low-latency-rgb-led-13mm-drivers-original-imahfaycthveemzj.jpeg?q=70" alt="">
+                </div>
+
+            </div>
+
+
+        </div>
+        <div id="card">
+            <div class="up">
+                <h3>Redmi sonic bass wireless</h3>
+                <p>55% off</p>
+
+            </div>
+            <div class="down">
+                <div class="leftcard">
+                    <h4>rs4500</h4>
+
+                </div>
+                <div class="rightcard">
+                    <img width="100%" height="90%" src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/k/h/c/buds-3-e509a-oneplus-original-imagwynyrx5gc5ph.jpeg?q=70" alt="">
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div id="card">
+            <div class="up">
+                <h3>Redmi Mi portable</h3>
+                <p>30% off</p>
+
+            </div>
+            <div class="down">
+                <div class="leftcard">
+                    <h4>rs2499</h4>
+
+                </div>
+                <div class="rightcard">
+                    <img width="100%" height="90%" src="https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/f/y/g/prodart-sam-sung-original-ehs61-deep-bass-with-sound-original-imagh9hngf3rfz9v.jpeg?q=70" alt="">
+
+                </div>
+
+            </div>
+
+
+        </div>
+        
+        
+         
+    </div>
+</body>
+</html>
